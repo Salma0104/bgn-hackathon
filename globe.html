@@ -1,0 +1,40 @@
+<!doctype html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Globe</title>
+  </head>
+<!-- Styles -->
+<body>
+    <h1> The Globe !</h1>
+    <style>
+        #chartdiv {
+          width: 50%;
+          height: 500px;
+          max-width: 100%;
+          float: left;
+        }
+        #country_data_div {
+          width: 50%;
+          height: 500px;
+          max-width: 100%;
+          float: right;
+        }
+        #store {
+            visibility: hidden;
+        }
+    </style>
+    
+        
+        <!-- Resources -->
+        <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+        
+        <!-- Chart code -->
+        <script src="./chart_globe.js"></script>
+        
+        <!-- HTML -->
+        <div id="chartdiv"></div>
+</body>
