@@ -60,8 +60,10 @@ backgroundSeries.data.push({
 
 polygonSeries.mapPolygons.template.events.on("click", function(ev) {
     nm = ev.target.dataItem.dataContext.name
-    
-    
+    url = `https://en.wikipedia.org/wiki/${nm}`
+    setTimeout(function(){
+        window.location.replace(url);
+    },2000)
 });
 
 // polygonSeries.mapPolygons.template.events.on("click", function(ev) {
@@ -82,7 +84,6 @@ polygonSeries.mapPolygons.template.on("active", function (active, target) {
         chart.animate({ key: "rotationY", to: -centroid.latitude, duration:1500, easing: am5.ease.inOut(am5.ease.cubic) });
     }
     }
-
     previousPolygon = target;
 });
 
