@@ -6,16 +6,24 @@
   </head>
 <!-- Styles -->
 <body>
-    <h1> The Globe !</h1>
     <style>
         #chartdiv {
-          width: 100%;
+          width: 60%;
           height: 500px;
-          max-width: 100%;
-          float: left;
+          margin-right: 20%;
+          margin-top: 5%;
+
         }
-        #store {
-            visibility: hidden;
+        #text {
+          width: 30%;
+          margin-left: 20%;
+          margin-top: 5%;
+        }
+
+        body {
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
     </style>
     
@@ -29,6 +37,9 @@
         <!-- Chart code -->
         <script src="./chart_globe.js"></script>
         
+        <div id="text">
+          <h1>The Globe.</h1>
+        </div>
         <!-- HTML -->
         <div id="chartdiv"></div>
 </body>

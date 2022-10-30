@@ -35,32 +35,37 @@ polygonSeries.mapPolygons.template.setAll({
     tooltipText: "{name}",
     toggleKey: "active",
     interactive: true,
+    fill: am5.color(0xFF5F1F)
 });
 
 polygonSeries.mapPolygons.template.states.create("hover", {
-    fill: root.interfaceColors.get("primaryButtonHover")
+    fill: am5.color(0xFFBF00)
 });
 
 polygonSeries.mapPolygons.template.states.create("active", {
-    fill: root.interfaceColors.get("primaryButtonHover")
+    fill: am5.color(0xFFBF00)
 });
 
 
-// Create series for background fill
-// https://www.amcharts.com/docs/v5/charts/map-chart/map-polygon-series/#Background_polygon
 var backgroundSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {}));
 backgroundSeries.mapPolygons.template.setAll({
-    fill: root.interfaceColors.get("alternativeBackground"),
-    fillOpacity: 0.1,
-    strokeOpacity: 0
+  fill: am5.color(0xFF5F1F) ,
+  fillOpacity: 0.15,
+  strokeOpacity: 0,
+  shadowColor: am5.color(0xFF5F1F),
+  shadowBlur: 90,
+  shadowOffsetX: 14,
+  shadowOffsetY: 14,
+  shadowOpacity: 0.5
 });
 backgroundSeries.data.push({
-    geometry: am5map.getGeoRectangle(90, 180, -90, -180)
+  geometry: am5map.getGeoRectangle(90, 180, -90, -180)
 });
 
 polygonSeries.mapPolygons.template.events.on("click", function(ev) {
     nm = ev.target.dataItem.dataContext.name
-    url = `https://en.wikipedia.org/wiki/${nm}`
+    //url = `https://en.wikipedia.org/wiki/${nm}`
+    url = `http://localhost:3000/${nm}`
     setTimeout(function(){
         window.location.replace(url);
     },2000)
