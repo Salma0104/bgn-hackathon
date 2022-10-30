@@ -8,7 +8,7 @@ var root = am5.Root.new("chartdiv");
 // Set themes
 // https://www.amcharts.com/docs/v5/concepts/themes/
 root.setThemes([
-    am5themes_Animated.new(root)
+    am5themes_Animated.new(root),
 ]);
 
 
@@ -35,7 +35,7 @@ polygonSeries.mapPolygons.template.setAll({
     tooltipText: "{name}",
     toggleKey: "active",
     interactive: true,
-    fill: am5.color(0xFF5F1F)
+    fill: am5.color(0xFF5F1F) //country colour
 });
 
 polygonSeries.mapPolygons.template.states.create("hover", {
@@ -50,13 +50,13 @@ polygonSeries.mapPolygons.template.states.create("active", {
 var backgroundSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {}));
 backgroundSeries.mapPolygons.template.setAll({
   fill: am5.color(0xFF5F1F) ,
-  fillOpacity: 0.15,
+  fillOpacity: 0.4,
   strokeOpacity: 0,
   shadowColor: am5.color(0xFF5F1F),
   shadowBlur: 90,
-  shadowOffsetX: 14,
-  shadowOffsetY: 14,
-  shadowOpacity: 0.5
+  shadowOffsetX: 30,
+  shadowOffsetY: 30,
+  shadowOpacity: 0.8
 });
 backgroundSeries.data.push({
   geometry: am5map.getGeoRectangle(90, 180, -90, -180)
@@ -64,7 +64,6 @@ backgroundSeries.data.push({
 
 polygonSeries.mapPolygons.template.events.on("click", function(ev) {
     nm = ev.target.dataItem.dataContext.name
-    //url = `https://en.wikipedia.org/wiki/${nm}`
     url = `http://localhost:3000/${nm}`
     setTimeout(function(){
         window.location.replace(url);
